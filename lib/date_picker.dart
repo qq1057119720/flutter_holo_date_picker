@@ -128,20 +128,21 @@ class DatePicker {
   }) {
     DateTime? _selectedDate = initialDate;
     final List<Widget> listButtonActions = [
+       TextButton(
+        style: TextButton.styleFrom(primary: textColor),
+        child: Text(cancelText ?? "Cancel"),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
       TextButton(
         style: TextButton.styleFrom(primary: textColor),
         child: Text(confirmText ?? "OK"),
         onPressed: () {
           Navigator.pop(context, _selectedDate);
         },
-      ),
-      TextButton(
-        style: TextButton.styleFrom(primary: textColor),
-        child: Text(cancelText ?? "Cancel"),
-        onPressed: () {
-          Navigator.pop(context);
-        },
       )
+     
     ];
 
     // handle the range of datetime
